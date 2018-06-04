@@ -1,31 +1,35 @@
 //define functions here
 
 function getIt() {
-  alert('Hey!');
+  $('p').on('click', function() {
+    alert('Hey!');
+  });
 }
 
 function frameIt() {
-  $('img').addClass("tasty");
-  $('img').css('border', "solid 2px red");
+  $('img').on('load', function() {
+    $('img').addClass("tasty");
+    $('img').css('border', "solid 2px red");
+  });
 }
 
-function pressIt(key) {
-  if (key.which == 71) {
-    alert('You have pressed G.');
-  }
+function pressIt() {
+  $('input').on('keydown', function(key) {
+    if (key.which == 71) {
+      alert('You have pressed G.');
+    }
+  });
 }
 
 function submitIt() {
-  alert('Your form is going to be submitted now.')
+  $('form').on('submit', function() {
+    alert('Your form is going to be submitted now.')
+  });
 }
 
 $(document).ready(function(){
 
 // call functions here
 
-$('p').on('click', getIt);
-$('img').on('load', frameIt);
-$('input').on('keydown', pressIt);
-$('form').on('submit', submitIt);
 
 });
